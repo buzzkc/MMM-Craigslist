@@ -1,0 +1,12 @@
+{
+  "name": "MMM-Craigslist",
+  "version": "1.0.0",
+  "description": "A MagicMirror module to display search results from craigslist",
+  "main": "MMM-Craigslist.js",
+  "author": "BuzzKc",
+  "license": "MIT",
+  "dependencies": {
+    "node-craigslist": "2.1.0"
+  },
+  "devDependencies": {}
+}
