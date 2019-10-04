@@ -30,6 +30,7 @@ module.exports = NodeHelper.create({
 		if (notification === "MMM-Craigslist_SEND_CONFIG") {
 			this.config = payload;
 			this.client = new craigslist.Client({
+				baseHost: this.config.baseHost,
 				city : this.config.city
 			});
 		}
@@ -44,7 +45,16 @@ module.exports = NodeHelper.create({
 			category : this.config.category,
 			maxPrice : this.config.maxPrice,
 			minPrice : this.config.minPrice,
-			offset: this.config.offset
+			offset: this.config.offset,
+			postal: this.config.postal,
+			searchDistance: this.config.searchDistance,
+			searchNearby: this.config.searchNearby,
+			searchTitlesOnly: this.config.searchTitlesOnly,
+			nocache: this.config.nocache,
+			autoMakeModel: this.config.autoMakeModel,
+			maxYear: this.config.maxYear,
+			minYear: this.config.minYear
+
 		};
 
 

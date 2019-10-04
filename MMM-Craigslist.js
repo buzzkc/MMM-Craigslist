@@ -11,13 +11,22 @@ Module.register("MMM-Craigslist", {
 	defaults: {
 		updateInterval: 60000,
 		retryDelay: 5000,
+		baseHost: 'craigslist.org',
 		city: 'seattle',
 		title: 'Craigslist',
 		search: 'pinball',
 		category: 'sss',
 		maxPrice: '',
 		minPrice: '',
-		offset: ''
+		offset: '',
+		postal: '',
+		searchDistance: '',
+		searchNearby: '',
+		searchTitlesOnly: false,
+		nocache: true,
+		autoMakeModel: '',
+		maxYear: '',
+		minYear: ''
 	},
 	
 	dataResult: null,
@@ -93,7 +102,7 @@ Module.register("MMM-Craigslist", {
 		const resultKeys = Object.keys(this.dataResult) || [];
 		wrapper.innerHTML = `
       <span class="title">${this.config.title}</span>
-      <ul class="listings">
+      <ul class="clistings">
         ${resultKeys
 			.map(resultKey => {
 				const listing = this.dataResult[resultKey];
@@ -101,8 +110,8 @@ Module.register("MMM-Craigslist", {
 				return `
                 <li>
                   <!--<span class="listing">${listing.date}</span>-->
-                  <span class="listing">${listing.price}</span>
-                  <span class="listing">${listing.title}</span>
+                  <span class="clisting">${listing.price}</span>
+                  <span class="clisting">${listing.title}</span>
                 </li>
             `;
 			})

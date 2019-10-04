@@ -2,7 +2,9 @@
 
 This is a module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/).
 
-A MagicMirror module to display search results from craigslist
+A MagicMirror module to display search results from craigslist.
+
+* NOTE: Craiglist does block for some IP ranges, so this may not work for you. I've found that setting the User-Agent header allows the search to execute, but no results are returned, so still trying to determine what needs to be passed to retrieve results
 
 ## Using the module
 
