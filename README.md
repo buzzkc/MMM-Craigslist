@@ -6,7 +6,17 @@ A MagicMirror module to display search results from craigslist.
 
 * NOTE: Craiglist does block for some IP addresses/ranges, so this may not work for you. I've found that setting the User-Agent header allows the search to execute, but no results are returned, so I'm still trying to determine what needs to be passed to retrieve results, as a browser does still work for searching.
 
-## Using the module
+## Installation
+### Setup the MagicMirror module
+~MagicMirror/modules
+
+git clone https://github.com/buzzkc/MMM-Craigslist.git
+
+cd MMM-Craigslist
+
+npm install
+
+### Using the module
 
 To use this module, add the following configuration block to the modules array in the `config/config.js` file:
 ```js
@@ -24,7 +34,7 @@ var config = {
 }
 ```
 
-## Configuration options
+### Configuration options
 
 | Option            | Description
 |-----------------  |-----------
@@ -51,3 +61,7 @@ var config = {
 * Add dates to display
 * Add QR code to open listings
 * Add images to listings
+
+## Thanks To
+* MichMich for developing [MagicMirror<sup>2</sup>](https://github.com/MichMich/MagicMirror)
+* The node-craigslist [node library](https://www.npmjs.com/package/node-craigslist)
