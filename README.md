@@ -3,6 +3,7 @@
 This is a module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/).
 
 A MagicMirror module to display search results from craigslist.
+![](./img/MMM-Craigslist.png)
 
 * NOTE: Craiglist does block for some IP addresses/ranges, so this may not work for you. I've found that setting the User-Agent header allows the search to execute, but no results are returned, so I'm still trying to determine what needs to be passed to retrieve results, as a browser does still work for searching.
 
