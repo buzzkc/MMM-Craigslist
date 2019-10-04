@@ -1,5 +1,5 @@
 # MMM-Craigslist
-
+[WIP]
 This is a module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/).
 
 A MagicMirror module to display search results from craigslist.
