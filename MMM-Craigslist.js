@@ -14,7 +14,7 @@ Module.register("MMM-Craigslist", {
 		baseHost: 'craigslist.org',
 		city: 'seattle',
 		title: 'Craigslist',
-		search: 'pinball',
+		search: 'coffee',
 		category: 'sss',
 		maxPrice: '',
 		minPrice: '',
