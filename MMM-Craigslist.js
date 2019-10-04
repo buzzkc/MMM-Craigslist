@@ -26,7 +26,8 @@ Module.register("MMM-Craigslist", {
 		nocache: true,
 		autoMakeModel: '',
 		maxYear: '',
-		minYear: ''
+		minYear: '',
+		maxResultsShown: 10
 	},
 	
 	dataResult: null,
@@ -86,7 +87,7 @@ Module.register("MMM-Craigslist", {
 		const wrapper = document.createElement('div');
 		if (this.dataResult === null || this.dataResult.length === 0) {
 			wrapper.innerHTML =
-				'<div class="loading"><span class="zmdi zmdi-rotate-right zmdi-hc-spin"></span> Loading...</div>';
+				'<div class="clLoading"><span class="zmdi zmdi-rotate-right zmdi-hc-spin"></span> Loading...</div>';
 
 			//retry ui update in a few seconds, data may still be loading
 			setTimeout(function() {
@@ -95,23 +96,23 @@ Module.register("MMM-Craigslist", {
 
 			return wrapper;
 		}
-
-		this.dataResult = this.dataResult.sort(this.compareDeviceNames); //sort device names
-		
+		this.dataResult = this.dataResult.sort(this.compareDates); //sort device names
+		this.dataResult = this.dataResult.slice(0,this.config.maxResultsShown);
 
 		const resultKeys = Object.keys(this.dataResult) || [];
+
+		wrapper.classList.add('clContainer');
 		wrapper.innerHTML = `
-      <span class="title">${this.config.title}</span>
-      <ul class="clistings">
+      <header class="module_heder">${this.config.title}</header>
+      <ul class="clListings">
         ${resultKeys
 			.map(resultKey => {
 				const listing = this.dataResult[resultKey];
-				
 				return `
-                <li>
-                  <!--<span class="listing">${listing.date}</span>-->
-                  <span class="clisting">${listing.price}</span>
-                  <span class="clisting">${listing.title}</span>
+                <li class="clListing">
+                  <!--<span>${listing.date}</span>-->
+                  <span>${listing.price} - </span>
+                  <span>${listing.title}</span>
                 </li>
             `;
 			})
@@ -119,6 +120,20 @@ Module.register("MMM-Craigslist", {
 		  </ul>
 		`;
 		return wrapper;
+	},
+
+	compareDates: function (a, b) {
+		// Use toUpperCase() to ignore character casing
+		const dateA = a.date.toUpperCase();
+		const dateB = b.date.toUpperCase();
+
+		let comparison = 0;
+		if (dateA < dateB) {
+			comparison = 1;
+		} else if (dateA > dateB) {
+			comparison = -1;
+		}
+		return comparison;
 	},
 
 	getScripts: function() {

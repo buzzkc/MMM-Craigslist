@@ -8,22 +8,26 @@
  * Custom here your css module
  *
  */
-.loading {
+.clLoading {
     text-align: center;
     font-size: 1rem;
 }
 
-.clistings {
+.clContainer {
+    width: 90%;
+}
+
+.clListings {
     list-style: none;
     margin: 0;
     list-style-position: inside;
     padding: 0;
 }
 
-.clistings .clisting {
+.clListing {
     text-align: left;
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
     color: #ddd;
     opacity: 0.85;
 }
